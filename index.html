@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Control Form Styling</title>
+    <style>
+        .error {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="myForm">
+        <input type="text" name="username" id="username" placeholder="Username">
+        <input type="password" name="password" id="password" placeholder="Password">
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // 阻止表单默认提交行为
+
+            var username = document.getElementById('username');
+            var password = document.getElementById('password');
+
+            // 检查用户名是否为空
+            if (username.value.trim() === '') {
+                username.classList.add('error'); // 添加错误样式
+            } else {
+                username.classList.remove('error'); // 移除错误样式
+            }
+
+            // 检查密码是否为空
+            if (password.value.trim() === '') {
+                password.classList.add('error'); // 添加错误样式
+            } else {
+                password.classList.remove('error'); // 移除错误样式
+            }
+
+            // 在此处可以进行其他操作，如表单提交等
+
+        });
+    </script>
+
+</body>
+
+</html>
